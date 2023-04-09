@@ -22,5 +22,4 @@ const storage = getStorage(app);
 
 //emulator suite for localhost testing
 
-
 export { auth, db, storage };

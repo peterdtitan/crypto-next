@@ -1,0 +1,89 @@
+[debug] [2022-12-18T06:31:11.400Z] ----------------------------------------------------------------------
+[debug] [2022-12-18T06:31:11.401Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2022-12-18T06:31:11.402Z] CLI Version:   11.18.0
+[debug] [2022-12-18T06:31:11.402Z] Platform:      darwin
+[debug] [2022-12-18T06:31:11.402Z] Node Version:  v16.15.1
+[debug] [2022-12-18T06:31:11.412Z] Time:          Sun Dec 18 2022 08:31:11 GMT+0200 (GMT+02:00)
+[debug] [2022-12-18T06:31:11.412Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-18T06:31:11.415Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-12-18T06:31:11.434Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-18T06:31:11.434Z] > authorizing via signed-in user (peter@madhouseinc.org)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/peterdtitan/Desktop/personal/crypto-next
+
+[debug] [2022-12-18T06:31:12.055Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-12-18T06:31:12.056Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2022-12-18T06:31:48.561Z] > refreshing access token with scopes: []
+[debug] [2022-12-18T06:31:48.563Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-18T06:31:48.563Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-18T06:31:48.815Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-12-18T06:31:48.815Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-18T06:31:48.867Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2022-12-18T06:31:48.867Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"adasdadasw2","name":"adasdadasw2"}
+[debug] [2022-12-18T06:31:50.056Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2022-12-18T06:31:50.056Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/cp.5173046894877866628"}
+[debug] [2022-12-18T06:31:50.058Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 [none]
+[debug] [2022-12-18T06:31:51.175Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 200
+[debug] [2022-12-18T06:31:51.175Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 {"name":"operations/cp.5173046894877866628"}
+[debug] [2022-12-18T06:31:51.676Z] [Project Creation Poller] Retrying task index 0
+[debug] [2022-12-18T06:31:51.677Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 [none]
+[debug] [2022-12-18T06:31:52.782Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 200
+[debug] [2022-12-18T06:31:52.782Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 {"name":"operations/cp.5173046894877866628","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true}}
+[debug] [2022-12-18T06:31:53.783Z] [Project Creation Poller] Retrying task index 0
+[debug] [2022-12-18T06:31:53.784Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 [none]
+[debug] [2022-12-18T06:31:54.972Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 200
+[debug] [2022-12-18T06:31:54.972Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5173046894877866628 {"name":"operations/cp.5173046894877866628","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"103603885453","projectId":"adasdadasw2","lifecycleState":"ACTIVE","name":"adasdadasw2","createTime":"2022-12-18T06:31:50.029Z","parent":{"type":"organization","id":"234080462591"}}}
+[debug] [2022-12-18T06:31:54.975Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/adasdadasw2:addFirebase [none]
+[debug] [2022-12-18T06:31:58.388Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/adasdadasw2:addFirebase 200
+[debug] [2022-12-18T06:31:58.388Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/adasdadasw2:addFirebase {"name":"operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz"}
+[debug] [2022-12-18T06:31:58.389Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz [none]
+[debug] [2022-12-18T06:31:59.279Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz 200
+[debug] [2022-12-18T06:31:59.279Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz {"name":"operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz"}
+[debug] [2022-12-18T06:31:59.781Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2022-12-18T06:31:59.782Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz [none]
+[debug] [2022-12-18T06:32:00.634Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz 200
+[debug] [2022-12-18T06:32:00.636Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz {"name":"operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz"}
+[debug] [2022-12-18T06:32:01.636Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2022-12-18T06:32:01.636Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz [none]
+[debug] [2022-12-18T06:32:02.298Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz 200
+[debug] [2022-12-18T06:32:02.298Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz {"name":"operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz"}
+[debug] [2022-12-18T06:32:04.299Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2022-12-18T06:32:04.300Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz [none]
+[debug] [2022-12-18T06:32:04.932Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz 200
+[debug] [2022-12-18T06:32:04.932Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz {"name":"operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz"}
+[debug] [2022-12-18T06:32:08.933Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2022-12-18T06:32:08.933Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz [none]
+[debug] [2022-12-18T06:32:09.744Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz 200
+[debug] [2022-12-18T06:32:09.744Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz {"name":"operations/workflows/MTU5ZTZiYmQtMmFmNS00ZDU1LWJkZDMtOWU2OGQ3NDY1YmYz","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"adasdadasw2","projectNumber":"103603885453","displayName":"adasdadasw2","name":"projects/adasdadasw2","resources":{"hostingSite":"adasdadasw2"}}}
+[info] 
+[info] 🎉🎉🎉 Your Firebase project is ready! 🎉🎉🎉
+[info] 
+[info] Project information:
+[info]    - Project ID: adasdadasw2
+[info]    - Project Name: adasdadasw2
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/adasdadasw2/overview
+[info] i  Using project adasdadasw2 (adasdadasw2) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2022-12-18T06:32:09.768Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/adasdadasw2/services/firebasedatabase.googleapis.com [none]
+[debug] [2022-12-18T06:32:09.768Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/adasdadasw2/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/adasdadasw2
