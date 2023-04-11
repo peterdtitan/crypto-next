@@ -1,9 +1,10 @@
 import React from 'react'
+import ProfileComponent from '../../components/customers/ProfileComponent';
 import Layout from '../../components/ui/Layout'
 
 export default function Customer() {
   return (
-    <div>Customer index page</div>
+    <ProfileComponent />
   )
 }
 

@@ -143,17 +143,15 @@ export default Login;
 
 export async function getServerSideProps() {
   const session = await getSession();
-  if (session.user.role && session.user.role === 'customer') {
+  if (session) {
     return {
       redirect: {
-        destination: '/customer',
+        destination: `/${session.user.role}`,
         permanent: false,
       },
     };
   }
   return {
-    props: {
-      session,
-    },
+    props: { session },
   };
 }
