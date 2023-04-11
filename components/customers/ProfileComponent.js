@@ -160,7 +160,7 @@ const ProfileComponent = ({user}) => {
             <div className="flex flex-col p-6 mt-2 gap-y-4 text-xs md:text-sm lg:text-base border-[0.5px] w-[90%] border-slate-300 rounded-md">
               <div className="flex items-center gap-4">
                 <BiError className="text-red-500" size={30}/>
-                <p>E-Wallet is not yet active. Check back soon.</p>
+                <p>Wallets not yet active. Check back soon.</p>
               </div>         
             </div>
           }
