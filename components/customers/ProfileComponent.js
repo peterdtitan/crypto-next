@@ -19,7 +19,7 @@ const ProfileComponent = ({user}) => {
       <section className="flex flex-col pb-10">
         <div className="relative h-[150px] md:h-[180px] lg:h-[200px] w-full flex">
           <Image
-          src='/images/elon.jpg' //{user.coverPhoto}
+          src={user.coverPhoto ? user.coverPhoto : '/images/cover.png'}
           layout="fill"
           alt="cover photo"
           quality={100}
@@ -28,17 +28,17 @@ const ProfileComponent = ({user}) => {
           />
         </div>
 
-        <div className="flex flex-col ml-10">
+        <div className="flex flex-col md:ml-10">
           <div className="max-w-md mx-[10px] -mt-10 bg-white overflow-hidden md:max-w-6xl">
             <div className="md:flex">
-              <div className="md:flex-shrink-0 relative h-[120px] w-24 md:h-[200px] md:w-40 lg:h-[280px] lg:w-60">
+              <div className="md:flex-shrink-0 relative h-[120px] w-24 md:h-[200px] md:w-40 lg:h-[280px] lg:w-60 bg-white">
                 <Image 
-                src='/images/elon.jpg' //{user.profilePhoto}
+                src={user.profilePhoto ? user.profilePhoto : '/images/profilePhoto.png'}
                 alt="profile image"
                 quality={100}
                 layout="fill"
                 priority
-                className="rounded-md object-cover border-2 border-red-500"
+                className="rounded-md object-cover border-2 border-primaryYellow"
                 />
               </div>
 
