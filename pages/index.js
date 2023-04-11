@@ -1,5 +1,6 @@
 import React from 'react'
 import Investors from '../components/ui/Investors';
+import Banks from '../components/ui/Banks';
 import Layout from '../components/ui/Layout'
 
 export default function Home() {
@@ -19,8 +20,8 @@ export default function Home() {
         <iframe src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=6&pref_coin_id=1505&graph=yes" className='w-full h-[400px] rounded-md'>
         </iframe>
       </div>
-
         <Investors />
+        <Banks />
     </div>
   )
 }
