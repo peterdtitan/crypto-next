@@ -5,7 +5,7 @@ import {MdEdit} from "react-icons/md";
 import {BiError} from "react-icons/bi";
 import { GoVerified } from 'react-icons/go'
 
-const ProfileComponent = () => {
+const ProfileComponent = ({user}) => {
 
 
   const [showUserDetails, setShowUserDetails] = useState(true);
@@ -50,7 +50,7 @@ const ProfileComponent = () => {
                 <div className="flex justify-between items-center border-b-[0.5px] border-slate-500">
                   <div className="flex gap-2 items-center pt-2 pb-4">
                     <MdOutlineLocationOn className="text-xl text-white bg-red-800 rounded-full p-1" />
-                    14 isanlu close ajao estate
+                    {user.address}
                   </div>
                 </div>
           
@@ -127,7 +127,7 @@ const ProfileComponent = () => {
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Username</p>
-                <p className="">@peterdtitan</p>
+                <p className="">{user.username}</p>
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Account Verification</p>

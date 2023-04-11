@@ -65,7 +65,7 @@ const Login = ({ session }) => {
       console.log(result);
       if (!result.error) {
         const session = await getSession()
-        router.push('/');
+        router.push(`/${session.user.role}`);
       } else {
         alert("Couldn't log you in. Check details and try again!");
         console.log(result.error);
@@ -89,7 +89,7 @@ const Login = ({ session }) => {
         /> 
         <div className="hidden lg:flex relative w-[70%] h-full">
             <Image
-              src="/images/img_6.jpg"
+              src="/images/elon.jpg"
               layout="fill"
               className="object-contain"
             />
@@ -147,7 +147,7 @@ export async function getServerSideProps() {
     return {
       redirect: {
         destination: `/${session.user.role}`,
-        permanent: false,
+        permanent: true,
       },
     };
   }
