@@ -1,5 +1,6 @@
 import React, {useState,useRef, useEffect} from "react";
-import { Navbar,  Link, Button, Text, Avatar, Dropdown, Input, useTheme, Row, Checkbox } from "@nextui-org/react";
+import { Navbar, Button, Text, Avatar, Dropdown, Input, useTheme, Row, Checkbox } from "@nextui-org/react";
+import Link from 'next/link'
 import Image from "next/image";
 import { useSession } from 'next-auth/react';
 import { signOut } from "next-auth/react";
@@ -158,7 +159,7 @@ export default function Nav(){
    </>
     }
 
-    <Navbar.Collapse
+  <Navbar.Collapse
     css={{
       $$navbarListColor: "#222224",
       $$navbarListBlurBackgroundColor: "#222224",
@@ -166,26 +167,61 @@ export default function Nav(){
       $$navbarTextColor: "#222224",
       background: "#222224",
   }}>
-      {collapseItems.map((item, index) => (
-        <Navbar.CollapseItem
-          key={item}
-          activeColor="warning"
-          css={{
-            color: index === collapseItems.length - 1 ? "$error" : "",
-          }}
-          isActive={index === 2}
-        >
-          <Link
-            color="inherit"
-            css={{
-              minWidth: "100%",
-            }}
-            href="#"
-          >
-            {item}
-          </Link>
-        </Navbar.CollapseItem>
-      ))}
+      <Navbar.CollapseItem
+      activeColor="warning"
+      css={{
+        color: '#ffffff',
+      }}
+  >
+    <Link href='/'>
+    Home
+    </Link>
+  </Navbar.CollapseItem>
+    
+      <Navbar.CollapseItem
+      activeColor="warning"
+      css={{
+        color: '#ffffff',
+      }}
+  >
+    <Link href='/offers'>
+    <p>Offers</p>
+    </Link>
+  </Navbar.CollapseItem>
+
+  <Navbar.CollapseItem
+  activeColor="warning"
+  css={{
+    color: '#ffffff',
+  }}
+>
+<Link href='/testimonials'>
+<p className="text-primaryYellow">Testimonials</p>
+</Link>
+</Navbar.CollapseItem>
+
+<Navbar.CollapseItem
+activeColor="warning"
+css={{
+  color: '#ffffff',
+}}
+>
+<Link href='/faq'>
+<p className="text-primaryYellow">FAQ</p>
+</Link>
+</Navbar.CollapseItem>
+
+<Navbar.CollapseItem
+activeColor="warning"
+css={{
+  color: '#ffffff',
+}}
+>
+<Link href='/contact'>
+<p className="text-red-500">Contact</p>
+</Link>
+</Navbar.CollapseItem>
+  
     </Navbar.Collapse>
   </Navbar>  
   </div>       
