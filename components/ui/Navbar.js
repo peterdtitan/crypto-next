@@ -11,7 +11,7 @@ import logo from "../../public/images/logo.png";
 import Testimonials from '../../pages/testimonials';
 
 
-export default function Nav() {
+export default function Nav(){
 
   const { data: session } = useSession();
   const router = useRouter();
