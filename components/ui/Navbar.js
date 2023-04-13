@@ -26,9 +26,8 @@ export default function Nav() {
 
 
   const collapseItems = [
-    "Dashboard",
+    "Proile",
     "Activity",
-    "My Settings",
     "Help & Feedback",
     "Log Out",
   ];
@@ -42,8 +41,10 @@ export default function Nav() {
         css={{
             $$navbarBlurBackgroundColor: "#222224",
             $$navbarTextColor: "#FFFFFF",
+            $$navbarContainerColor: "#222224",
             $$navbarContainerMaxWidth: "screen",
             fontFamily: "$Montserrat",
+            $$navbarBackgroundColor: "#222224"
         }}
     >
     <Navbar.Toggle showIn="md" />
@@ -162,6 +163,7 @@ export default function Nav() {
       $$navbarListColor: "#222224",
       $$navbarListBlurBackgroundColor: "#222224",
       $$navbarListBlur: "20px",
+      $$navbarTextColor: "#222224",
       background: "#222224",
   }}>
       {collapseItems.map((item, index) => (

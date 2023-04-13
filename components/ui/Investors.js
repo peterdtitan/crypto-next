@@ -17,7 +17,7 @@ const users = [
         role: 'Angel Investor, Entreprenuer',
         image: '/images/anthony.jpg',
         description: 'Anthony Pompliano has invested over $100m in start-ups like us and has 1.6 million followers on Twitter, where every day he shares crypto news to inform his audience. "Pomp," as he calls himself, sends a daily newsletter filled with insights on finance and tech to hundreds of thousands of investors. He has since recommended us a couple times.',
-        url: 'https://twitter.com/satoshi'
+        url: 'https://twitter.com/APompliano'
     },
     {
         id: 3,
@@ -39,7 +39,7 @@ const Card = ({user}) => {
             <p className='text-md text-center font-medium -mt-3'>{user.name}</p>
             <p className='text-xs text-center bg-black text-white p-[5px] rounded-xl'>{user.role}</p>
             <p className='text-xs md:text-sm text-center italic'>{user.description}</p>
-            <Link href={user.url}>
+            <Link href={user.url} target="_blank">
               <button className='p-2 mt-2 text-xs border-[0.5px] border-white  text-white bg-black rounded-lg hover:text-primaryYellow'>
                 View Profile
               </button>

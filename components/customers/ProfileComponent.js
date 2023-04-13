@@ -66,16 +66,7 @@ const ProfileComponent = ({user}) => {
                         >
                           Food
                         </small>
-                        <small
-                        className="text-xs md:text-base flex items-center justify-center rounded-md py-1 px-2 bg-slate-300"
-                      >
-                        Food
-                      </small>
-                      <small
-                      className="text-xs md:text-base flex items-center justify-center rounded-md py-1 px-2 bg-slate-300"
-                    >
-                      Food
-                    </small>
+                        {}
                   </div>
                 </div>
 
@@ -127,7 +118,7 @@ const ProfileComponent = ({user}) => {
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Username</p>
-                <p className="">{user.username}</p>
+                <p className="">@{user.username}</p>
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Account Verification</p>

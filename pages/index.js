@@ -2,6 +2,7 @@ import React from 'react'
 import Investors from '../components/ui/Investors';
 import Banks from '../components/ui/Banks';
 import Layout from '../components/ui/Layout'
+import GettingStarted from '../components/ui/GettingStarted';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       </div>
         <Investors />
         <Banks />
+        <GettingStarted />
     </div>
   )
 }

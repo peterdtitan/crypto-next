@@ -75,6 +75,7 @@ const extractAddress = (place) => {
 function BasicInfo({ formData, setFormData, isAlert}) {
   const searchInput = React.useRef(null);
   const [Geo_address, set_Geo_address] = useState({});
+  const [selectedCrypto, setSelectedCrypto] = useState([])
 
   // init gmap script
   const initMapScript = () => {
@@ -131,7 +132,6 @@ function BasicInfo({ formData, setFormData, isAlert}) {
     initMapScript().then(() => initAutocomplete());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(Geo_address.city);
   //Object.assign(formData, Geo_address);
   formData.address =
     Geo_address.city +
@@ -141,13 +141,10 @@ function BasicInfo({ formData, setFormData, isAlert}) {
     Geo_address.zip +
     ", " +
     Geo_address.country;
-  //console.log(formData.address);
 
   formData.city = Geo_address.city;
   formData.state = Geo_address.state;
   formData.country = Geo_address.country;
-  //console.log(formData.city);
-  //console.log(formData);
 
   /**Still an issue to solve :::: when pressing previous, data becomes undefined!!! **/
 
@@ -217,7 +214,6 @@ function BasicInfo({ formData, setFormData, isAlert}) {
         }, 1000);
       })
       .catch((error) => {
-        console.log(error);
         setTimeout(() => {
           alert("Error while deleting, try again!")
         }, 1000);
