@@ -8,10 +8,6 @@ import { useRouter } from "next/router";
 import { MdOutlineMessage, MdOutlineShoppingCart } from "react-icons/md";
 
 
-import logo from "../../public/images/logo.png";
-import Testimonials from '../../pages/testimonials';
-
-
 export default function Nav(){
 
   const { data: session } = useSession();
@@ -25,13 +21,6 @@ export default function Nav(){
 
   const [visible, setVisible] = useState();
 
-
-  const collapseItems = [
-    "Proile",
-    "Activity",
-    "Help & Feedback",
-    "Log Out",
-  ];
   
   if(!initialRenderComplete) {
     return null
@@ -130,7 +119,7 @@ export default function Nav(){
             </Text>
           </Dropdown.Item>
           <Dropdown.Item key="profile" withDivider>
-            Profile
+            <Link href={`/${session.user.role}`}>Profile</Link>
           </Dropdown.Item>
           <Dropdown.Item key="orders" withDivider>
             Earnings
