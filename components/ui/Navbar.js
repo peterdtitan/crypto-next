@@ -148,7 +148,7 @@ export default function Nav() {
    </> : <>
     <Navbar.Content>
       <Navbar.Link href="/login" >Login</Navbar.Link>
-      <Navbar.Link href="/join" css={{
+      <Navbar.Link href="/customers/register" css={{
             bg: "#FFAF2E",
             color: "#000000",
             p: "8px",
