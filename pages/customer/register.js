@@ -140,7 +140,6 @@ const Register = () => {
       && formData.lastName !== ""
       && formData.password !== ""
       && formData.address !== ""
-      && formData.currentPlan !== ""
       ) {
       try {
         const user = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
