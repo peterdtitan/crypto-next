@@ -76,12 +76,12 @@ export default function Nav() {
     >
       <Navbar.Link href="/" 
         isActive={router.pathname == "/" ? true : false}>Home</Navbar.Link>
-      <Navbar.Link href="/charts" 
-        isActive={router.pathname.startsWith("/charts") ? true : false}>Charts</Navbar.Link>
       <Navbar.Link href="/offers" 
         isActive={router.pathname.startsWith("/offers") ? true : false}>Offers</Navbar.Link>
       <Navbar.Link href="/testimonials" 
         isActive={router.pathname.startsWith("/testimonials") ? true : false}>Testimonials</Navbar.Link>
+      <Navbar.Link href="/faq" 
+        isActive={router.pathname.startsWith("/faq") ? true : false}>FAQ</Navbar.Link>
       <Navbar.Link href="/contact" 
         isActive={router.pathname.startsWith("/contact")  ? true : false}>Contact</Navbar.Link>
 

@@ -50,7 +50,7 @@ const Card = ({user}) => {
 
 export default function Investors() {
   return (
-    <div className='flex flex-col md:flex-row bg-black/90 text-white w-full items-center justify-center font-montserrat pb-10 md:pb-20'>
+    <div className='flex flex-col md:flex-row bg-black/90 text-white w-full items-center justify-center font-montserrat pb-10 md:pb-16'>
         <div className="flex flex-col p-4 items-center justify-center">
             <h1 className='text-3xl font-semibold tracking-wider mt-10'>Top Investors</h1>
             <p className='text-xs md:text-sm md:w-[850px] text-center mt-4'>Our reserves are trusted by some big names in the game and this makes it possible to continually provide the
