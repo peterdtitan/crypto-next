@@ -43,7 +43,7 @@ export default function Withdrawals(withdrawals) {
                       <>
                         <div className="flex items-center justify-between px-4 py-3 bg-gray-50">
                           <div className="text-sm font-medium text-gray-900">{withdrawal.date}</div>
-                          <div className="text-sm font-medium text-gray-900 p-2 rounded-full bg-green-100 text-green-700">${withdrawal.amount}</div>
+                          <div className="text-sm font-medium text-gray-900 p-2 rounded-full bg-green-100">${withdrawal.amount}</div>
                           <div
                             className={`text-xs font-medium p-2 w-20 flex justify-center rounded-full ${
                               withdrawal.status === 'Pending'
@@ -78,7 +78,7 @@ export default function Withdrawals(withdrawals) {
             </ul>
             ) 
               : 
-              <div className="w-[300px] h-[300px] flex items-center justify-center gap-6 flex-col w-full">
+              <div className=" h-[300px] flex items-center justify-center gap-6 flex-col w-full">
                 <BiError className="text-6xl text-red-700" />
                 <p className="text-black text-lg italic">No earnings to display!</p>
               </div> 
