@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Layout from '../../components/ui/Layout'
+import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Disclosure } from '@headlessui/react';
@@ -69,9 +70,19 @@ const plans = [
   },
 ]
 
-const currentPlan = plans[0]; // Replace this with actual customer data
+export default function Plans({currentPlan}) {
+  const [initialRenderComplete, setInitialRenderComplete] = React.useState(false);
+  const index = plans.findIndex(obj => obj.name === currentPlan);
+  const [plan, setPlan] = React.useState(plans[index]);
 
-export default function Plans() {
+  useEffect(() => {
+    setInitialRenderComplete(true);
+  } , []);
+
+  if(!initialRenderComplete) {
+      return null
+  } else {
+
   return (
     <div className="min-h-screen bg-gray-100 pb-10 md:pb-20">
       <Head>
@@ -94,13 +105,13 @@ export default function Plans() {
           {/* Current plan */}
           <div className="mt-6">
             <h2 className="text-lg font-medium text-gray-900">
-              Current Plan: {currentPlan.name}
+              Current Plan: {plan.name}
             </h2>
-            <p className="mt-2 text-sm text-gray-500 flex flex-col">
-              {currentPlan.features.map((data) => (
+            <div className="mt-2 text-sm text-gray-500 flex flex-col">
+              {plan.features.map((data) => (
                 <p>• {data}</p>
               ))}
-            </p>
+            </div>
           </div>
 
           {/* Upgrade options */}
@@ -172,6 +183,7 @@ export default function Plans() {
     </div>
   )
 }
+              }
   
 
 
@@ -180,3 +192,23 @@ Plans.getLayout = function getLayout(Plans) {
     return <Layout>{Plans}</Layout>;
 };
 
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) { 
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: true,
+      },
+    };
+  }
+  const response = await fetch(`https://us-central1-crypto-gen.cloudfunctions.net/app/api/user/userDetails/${session.user.id}`)
+  const user = await response.json()
+  const currentPlan = user.currentPlan || ""
+  return {
+    props: {
+      session,
+      currentPlan
+    },
+  };
+}
