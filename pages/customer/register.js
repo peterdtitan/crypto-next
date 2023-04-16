@@ -23,6 +23,7 @@ const Register = () => {
   const [longitude, setLongitude] = useState(null);
   const [error, setErrorMessage] = useState(null);
   const [isAlert, setIsAlert] = useState(false);
+  const [selectedCrypto, setSelectedCrypto] = useState([])
 
 
   const notifyRequiredFields = () => {
@@ -109,6 +110,7 @@ const Register = () => {
     state: "",
     phoneNumber: "",
     sex: "",
+    crypto: selectedCrypto
   });
 
 
@@ -116,7 +118,7 @@ const Register = () => {
     if (page === 0) {
       return <BasicInfo formData={formData} isAlert={isAlert} setFormData={setFormData} />;
     } else {
-      return <OtherInfo formData={formData} isAlert={isAlert} setFormData={setFormData} />;
+      return <OtherInfo formData={formData} isAlert={isAlert} setFormData={setFormData} setSelectedCrypto={setSelectedCrypto} />;
     }
   };
 

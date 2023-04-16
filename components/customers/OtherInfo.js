@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Loading, Radio, Input, Textarea, Tooltip, Checkbox } from "@nextui-org/react";
 
-function OtherInfo({ formData, setFormData, Geo_address, isAlert }) {
-    const [selectedCrypto, setSelectedCrypto] = useState([])
+function OtherInfo({ formData, setFormData, setSelectedCrypto }) {
 
     return (
         <div className="flex flex-col md:grid grid-cols-2 gap-x-8 md:w-[70%]  gap-y-6 md:gap-y-8 md:border md:border-1 md:border-gray-400 md:rounded-lg p-8 font-montserrat">
