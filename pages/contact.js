@@ -1,101 +1,109 @@
 import React from 'react'
 import Head from 'next/head';
 import { useState } from 'react';
+import ContactModal from '../components/Modal'
+import Link from 'next/link'
 import Layout from '../components/ui/Layout'
 
 export default function Contact() {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
 
-  const handleChange = (e) => {
-    setFormState({ ...formState, [e.target.name]: e.target.value });
-  };
+    const [showModal, setShowModal] = useState(false);
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if(
+        email != "" &&
+        name != "" &&
+        message != ""
+      ){
+      // Add code to submit form data
+        console.log(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+        setShowModal(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        return alert("Please fill in the form first!")
+      }
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(formState);
-  };
-
-  return (
-    <div>
-      <Head>
-        <title>Contact Us</title>
-        <meta name="description" content="Contact Us Page" />
-      </Head>
-
-      <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <div className="text-3xl font-bold mb-4">Contact Us</div>
-
-        <form onSubmit={handleSubmit} className="w-full max-w-lg">
-          <div className="flex flex-wrap mb-6">
-            <div className="w-full md:w-1/2 mb-6 md:mb-0">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="name"
-              >
-                Name
-              </label>
-              <input
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Enter your name"
-                onChange={handleChange}
-                value={formState.name}
-              />
+    function handleCloseModal() {
+      setShowModal(false);
+    }
+  
+    return (
+      <div className="bg-gray-100 text-sm md:text-base">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-col gap-4 pb-8 text-sm md:text-base">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Contact Us
+              </h2>
+              <p>
+              Please fill out the form with a detailed enquiry and the team will reachout to you within 48hrs.
+              However, be sure to checkout the 
+                <Link href="/faq">
+                  <span className="text-primaryYellow font-semibold"> FAQ </span>
+                </Link>
+              as this contains most of the questions we have received via our contact forms. If you are a customer,
+              you can reach us via phone on your dedicated broker/agent.
+              </p>
             </div>
-            <div className="w-full md:w-1/2">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="email"
-              >
-                Email
-              </label>
-              <input
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-                onChange={handleChange}
-                value={formState.email}
-              />
-            </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-gray-900 font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your name"
+                  className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-4"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-gray-900 font-medium mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-4"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-gray-900 font-medium mb-2">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Enter your message"
+                  className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-6"
+                ></textarea>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-black bg-primaryYellow hover:bg-lightBlack hover:text-primaryYellow focus:outline-none"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+            <ContactModal isOpen={showModal} onClose={handleCloseModal} />
           </div>
-
-          <div className="mb-6">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="message"
-            >
-              Message
-            </label>
-            <textarea
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-48 resize-none"
-              id="message"
-              name="message"
-              placeholder="Enter your message"
-              onChange={handleChange}
-              value={formState.message}
-            ></textarea>
-          </div>
-
-          <div className="flex justify-center">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
-            >
-              Send Message
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
   );
 }
 

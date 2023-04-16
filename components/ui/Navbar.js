@@ -84,7 +84,6 @@ export default function Nav(){
         },
       }}
     >      
-      <MdOutlineMessage size={24} />
       <Dropdown placement="bottom-right">
         <Navbar.Item>
           <Dropdown.Trigger>

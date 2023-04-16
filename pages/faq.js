@@ -1,5 +1,6 @@
 import React from 'react'
 import { Disclosure, Transition } from '@headlessui/react'
+import Head from 'next/head';
 import { BsChevronUp } from 'react-icons/bs'
 import Layout from '../components/ui/Layout'
 

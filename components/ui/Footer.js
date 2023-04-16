@@ -23,10 +23,10 @@ export default function Footer() {
                 <div className="text-sm">
                     <ul>
                         <Link href="/" legacyBehavior><li className="hover:text-primaryYellow">Home</li></Link>
-                        <Link href="/marketplace" legacyBehavior><li className="hover:text-primaryYellow">Explore</li></Link>
-                        <Link href="/marketplace" legacyBehavior><li className="hover:text-primaryYellow">Marketplace</li></Link>
-                        <Link href="#" legacyBehavior><li className="hover:text-primaryYellow">Community</li></Link>
-                        <Link href="/blogs" legacyBehavior><li className="hover:text-primaryYellow">Blogs</li></Link>
+                        <Link href="/offers" legacyBehavior><li className="hover:text-primaryYellow">Offers</li></Link>
+                        <Link href="/testimonials" legacyBehavior><li className="hover:text-primaryYellow">Testimonials</li></Link>
+                        <Link href="/login" legacyBehavior><li className="hover:text-primaryYellow">Log In</li></Link>
+                        <Link href="/customer/register" legacyBehavior><li className="hover:text-primaryYellow">Sign Up</li></Link>
                     </ul>
                 </div>
             </div>
@@ -35,9 +35,9 @@ export default function Footer() {
                 <h2 className="text-base tracking-widest font-medium hover:text-primaryYellow">DISCOVER</h2>
                 <div className="text-sm">
                     <ul>
-                        <Link href="/" legacyBehavior><li className="hover:text-primaryYellow">Designers</li></Link>
-                        <Link href="/marketplace" legacyBehavior><li className="hover:text-primaryYellow">Models</li></Link>
-                        <Link href="/marketplace" legacyBehavior><li className="hover:text-primaryYellow">Craftsmen</li></Link>
+                        <Link href="/" legacyBehavior><li className="hover:text-primaryYellow">Overview</li></Link>
+                        <Link href="/testimonials" legacyBehavior><li className="hover:text-primaryYellow">Our Story</li></Link>
+                        <Link href="/customer/register" legacyBehavior><li className="hover:text-primaryYellow">What Next?</li></Link>
                     </ul>
                 </div>
             </div>
@@ -46,30 +46,25 @@ export default function Footer() {
                 <h2 className="text-base tracking-widest font-medium hover:text-primaryYellow">RESOURCES</h2>
                 <div className="text-sm">
                     <ul>
-                        <Link href="/" legacyBehavior><li className="hover:text-primaryYellow">Size Chart</li></Link>
-                        <Link href="/marketplace" legacyBehavior><li className="hover:text-primaryYellow">Terms and Conditions</li></Link>
-                        <Link href="/marketplace" legacyBehavior><li className="hover:text-primaryYellow">Return Policy</li></Link>
-                        <Link href="#" legacyBehavior><li className="hover:text-primaryYellow">Privacy Policy</li></Link>
+                        <Link href="/faq" legacyBehavior><li className="hover:text-primaryYellow">FAQ</li></Link>
+                        <Link href="/customer/register" legacyBehavior><li className="hover:text-primaryYellow">Get Started</li></Link>
+                        <Link href="/offers" legacyBehavior><li className="hover:text-primaryYellow">Plans Available</li></Link>
+                        <Link href="/contact" legacyBehavior><li className="hover:text-primaryYellow">Contact Us</li></Link>
                     </ul>
                 </div>
             </div>
 
             <div className="flex flex-col gap-2 cursor-pointer">
                 <h2 className="text-base tracking-widest font-medium hover:text-primaryYellow">CONNECT</h2>
-                <Input 
-                size="md" 
-                placeholder="Medium" 
-                aria-labelledby="Subscribe-button"
-               />
                
                <div className="flex items-center justify-start gap-6">
-                    <Link href="https://www.facebook.com/AFKulture" legacyBehavior>
+                    <Link href="" legacyBehavior>
                         <a rel="noopener noreferrer" target="_blank"><RiFacebookBoxLine size={25}/></a>
                     </Link>
-                    <Link href="https://www.instagram.com/afrocentrickulture" legacyBehavior>
+                    <Link href="" legacyBehavior>
                         <a rel="noopener noreferrer" target="_blank"><RiInstagramLine size={25} /></a>
                     </Link>
-                    <Link href="https://twitter.com/afrocentrickul1"  legacyBehavior>
+                    <Link href=""  legacyBehavior>
                         <a rel="noopener noreferrer" target="_blank"><RiTwitterLine size={25} /></a>
                     </Link>
                </div>

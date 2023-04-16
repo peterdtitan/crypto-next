@@ -100,6 +100,7 @@ const Register = () => {
     coverPhoto: "",
     password: "",
     verified: false,
+    bio: "",
     confirmPassword: "",
     currentPlan: "",
     address: "",
@@ -178,8 +179,10 @@ const Register = () => {
   return (
     
     <div className='font-montserrat flex flex-col gap-8 items-center justify-center mb-20'>
-      <div className="flex items-center w-full justify-between bg-lightBlack px-6 py-4 text-white">
-        <Image src={logo} alt="afrocentric-logo" width={100} height={45} />
+      <div className="flex items-center w-full justify-between bg-lightBlack text-white">
+        <div className="relative h-80 w-80 flex items-center">
+          <Image src={logo} alt="crypto-logo" width={170} height={45} />
+        </div>
         <div className="flex-col items-center px-2 md:flex md:flex-row md:gap-4">
           <h3 className="text-sm">Already have an account?</h3>
           <button className="text-s cursor-pointer rounded-md bg-primaryYellow p-1 text-black md:py-1 md:px-6">

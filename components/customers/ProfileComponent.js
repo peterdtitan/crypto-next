@@ -55,7 +55,7 @@ const ProfileComponent = ({user}) => {
                 </div>
           
                 <span className="text-xs pt-2 md:text-sm lg:text-base flex items-end">
-                  <p>Hello this is a random text meant to be my profile bio and public profile.</p>
+                  <p>{user.bio}</p>
                 </span>
 
                 <div className="flex gap-4 items-start pt-4">
@@ -114,7 +114,7 @@ const ProfileComponent = ({user}) => {
             <div className="flex flex-col p-6 mt-2 gap-y-4 text-xs md:text-sm lg:text-base border-[0.5px] w-[90%] border-slate-300 rounded-md">
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                   <p className="font-semibold">Legal Fullname</p>
-                  <p className="">Peter Okorafor</p>
+                  <p className="">{user.firstName} {user.lastName}</p>
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Username</p>
@@ -126,23 +126,23 @@ const ProfileComponent = ({user}) => {
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Address</p>
-                <p className="">14 isanlu close ajao estate</p>
+                <p className="">{user.address}</p>
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Country</p>
-                <p className="">Nigeria</p>
+                <p className="">{user.country}</p>
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Date Joined</p>
-                <p className="">25-09-2023</p>
+                <p className="">N/A</p>
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Total Invested</p>
-                <p className="">$10,031.90</p>
+                <p className="">N/A</p>
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Withdrawal Limit</p>
-                <p className="">$1000 <span className="text-white italic bg-red-600 p-1 rounded-md font-bold">Monthly</span></p>
+                <p className="">${user.withdrawalLimit.amount} <span className="text-white italic bg-red-600 p-1 rounded-md font-bold">{user.withdrawalLimit.time}</span></p>
               </div>
             </div>
           }

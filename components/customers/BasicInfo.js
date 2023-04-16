@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RiUserAddLine } from "react-icons/ri";
 import { storage } from "../../firebase.config";
+import { Textarea, Grid } from "@nextui-org/react";
 import {
   deleteObject,
   getDownloadURL,
@@ -317,6 +318,21 @@ function BasicInfo({ formData, setFormData, isAlert}) {
             setFormData({ ...formData, email: event.target.value });
           }}
         />
+      </div>
+
+      <div className="col-span-2">
+        <div className="flex flex-col gap-2">
+          <label className="text-sm md:text-base">
+            Profile Bio<sup className="italic"> (optional)</sup>
+          </label>
+          <Textarea
+          placeholder="Enter a short profile bio."
+          maxlength="60"
+          onChange={(event) => {
+            setFormData({ ...formData, bio: event.target.value });
+          }}
+          />
+        </div>
       </div>
 
       <div className="flex flex-col gap-2">
