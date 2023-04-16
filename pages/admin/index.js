@@ -18,10 +18,10 @@ Admin.getLayout = function getLayout(Admin) {
 
 export async function getServerSideProps() {
     const session = await getSession();
-    if (session) {
+    if (!session) {
       return {
         redirect: {
-          destination: `/${session.user.role}`,
+          destination: '/login',
           permanent: true,
         },
       };
