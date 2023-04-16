@@ -7,7 +7,7 @@ export default function Testimonials() {
     <div className='flex flex-col items-center gap-4 justify-center w-full h-full pt-10 pb-10 md:pb-20 bg-lightBlack font-montserrat text-white'>
       <div className="flex flex-col p-4 gap-4 items-center justify-center">
         <h1 className="text-2xl md:text-4xl ">Our Story in Numbers...</h1>
-        <p className="font-montserrat text-xs md:text-base w-[70%] md:w-[70%] text-xl">
+        <p className="font-montserrat text-xs md:text-base w-[70%] md:w-[70%]">
         Over the years, since our inception in 2019, we have many individual clients and provided B2B solutions as well. Our numbers tell
         the story of our success and we are proud to show it off.
         </p>

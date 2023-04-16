@@ -45,13 +45,13 @@ export default function Nav(){
         },
       }}
     >
-    {/*<Image
-    height={40}
-    width={120}
-    src={logo}
+    <Image
+    height={60}
+    width={190}
+    src='/images/logo.png'
     className="p-4"
     alt="logo"
-    />*/}<p className="text-lg px-4 py-1 bg-primaryYellow/30 rounded-md">Crypto-Gen</p>
+    />
     </Navbar.Brand>
     <Navbar.Content
       activeColor="warning"
@@ -121,7 +121,6 @@ export default function Nav(){
           <Dropdown.Item key="profile" withDivider>
             <Link href={`/${session.user.role}`}>Profile</Link>
           </Dropdown.Item>
-          {session.user.role === 'customer' ? <>
             <Dropdown.Item key="orders" withDivider>
               <Link href={`/${session.user.role}/earnings`}>Earnings</Link>
             </Dropdown.Item>
@@ -134,9 +133,6 @@ export default function Nav(){
             <Dropdown.Item key="help_and_feedback" withDivider>
               <Link href='/contact'>Help & Feedback</Link>
             </Dropdown.Item>
-          </> : 
-          null
-          }
           <Dropdown.Item key="logout" withDivider color="#fffffff">
             <button className="bg-red-600 text-white w-full rounded-md p-2" onClick={()=>signOut()}>Log Out</button>
           </Dropdown.Item>

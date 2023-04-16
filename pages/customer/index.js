@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
   if(session){
     const res = await fetch(`https://us-central1-crypto-gen.cloudfunctions.net/app/api/user/userDetails/${session.user.id}`)
     const data = await res.json()
-    const user = data.data;
+    const user = data;
 
     return { 
       props: { user } 

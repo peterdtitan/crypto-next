@@ -95,6 +95,10 @@ const faqs = [
 const Faq = () => {
   return (
     <div className="bg-gray-100 pb-8 md:pb-20">
+    <Head>
+    <title>FAQ</title>
+    <meta name="description" content="FAQ Page" />
+  </Head>
       <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div className="sm:max-w-lg mx-auto pb-8">
           <div className="flex flex-col gap-4 pb-8">

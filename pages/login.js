@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiFillCloseCircle } from "react-icons/ai";
 import logo from "../public/images/logo.png";
+import Layout from '../components/ui/Layout'
 
 const Login = ({ session }) => {
   const [email, setEmail] = useState("");
@@ -94,8 +95,8 @@ const Login = ({ session }) => {
             />
         </div>
 
-        <div className="flex flex-col gap-8 w-[100%] -mt-32 md:-mt-0 items-center justify-center">
-            <div className="relative rounded-md ml-20 w-40 h-20">
+        <div className="flex flex-col gap-2 w-[100%] -mt-32 md:-mt-0 items-center justify-center">
+            <div className="relative rounded-md ml-20 w-80 h-40">
                 <Image 
                     layout="fill"
                     className="object-contain"
@@ -103,7 +104,7 @@ const Login = ({ session }) => {
                 />
             </div>
             <h1 className="flex flex-col text-center">
-                <p className="text-3xl text-primaryYellow">Welcome Back,</p>
+                <p className="text-3xl text-primaryYellow">Welcome back!</p>
                 <p className="italic text-xl">Login to conitnue</p>
             </h1>
             <form onSubmit={loginHandler} className="flex flex-col w-[80%] md:w-[60%] gap-4">
@@ -139,6 +140,10 @@ const Login = ({ session }) => {
 };
 
 export default Login;
+
+Login.getLayout = function getLayout(Login) {
+  return <Layout>{Login}</Layout>;
+}
 
 export async function getServerSideProps() {
   const session = await getSession();
