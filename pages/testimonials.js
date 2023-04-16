@@ -58,7 +58,7 @@ export default function Testimonials() {
           </div>
 
           <div className="flex flex-col items-center justify-center p-4 gap-8 h-[300px] md:h-[200px] w-[300px] md:w-[500px]">
-            <h1 className="text-7xl text-slate-500 w-">21+</h1>
+            <h1 className="text-7xl text-slate-500 font-bold">700+</h1>
             <p className='w-[60%] text-sm'>
               Number of businesses we have helped scale their global presence and expanded their portfolio via crypto investment. 
               These businesses have also <span className="text-primaryYellow">created partnerships with us </span> to offer their services and make the platform even better.

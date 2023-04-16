@@ -1,13 +1,12 @@
 import React from 'react';
 import Layout from '../../components/ui/Layout'
-import { useSession } from 'next-auth/react';
+import { useSession, getSession } from 'next-auth/react';
 
-export default function Admin(){
-    const { data: session } = useSession();
+export default function Admin({session}){
     return (
         <div className='flex flex-col items-center justify-center h-screen'>
             <h1 className='text-4xl font-bold'>Welcome, 
-                <span className='text-primaryYellow'> {session.user.firstName + session.user.lastName}</span>
+                <span className='text-primaryYellow'> {session.user.firstName + ' ' + session.user.lastName}</span>
             </h1>
         </div>
     )
@@ -16,3 +15,18 @@ export default function Admin(){
 Admin.getLayout = function getLayout(Admin) {
     return <Layout>{Admin}</Layout>;
 };
+
+export async function getServerSideProps() {
+    const session = await getSession();
+    if (session) {
+      return {
+        redirect: {
+          destination: `/${session.user.role}`,
+          permanent: true,
+        },
+      };
+    }
+    return {
+      props: { session },
+    };
+}

@@ -65,7 +65,7 @@ const Login = ({ session }) => {
       console.log(result);
       if (!result.error) {
         const session = await getSession()
-        router.push(`/${session.user.role}`);
+        console.log(session)
       } else {
         alert("Couldn't log you in. Check details and try again!");
         console.log(result.error);
