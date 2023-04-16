@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Investors from '../components/ui/Investors';
 import Banks from '../components/ui/Banks';
 import Layout from '../components/ui/Layout'
@@ -7,6 +8,10 @@ import GettingStarted from '../components/ui/GettingStarted';
 export default function Home() {
   return (
     <div className='flex flex-col font-montserrat items-center justify-center'>
+    <Head>
+      <title>Home | Crypto-Gen</title>
+      <link rel="icon" href="/logo.png" />
+    </Head>
       <iframe className="w-full h-10 scroll-auto overscroll-visible" src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no">
       </iframe>
 

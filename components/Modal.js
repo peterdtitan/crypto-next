@@ -22,7 +22,7 @@ export default function ContactModal({ isOpen, onClose }) {
     >
       <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
       <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-md mx-auto">
-        <div className="px-4 py-4 h-80 w-80">
+        <div className="px-4 py-4 h-[300px] w-[300px] flex flex-col gap-4">
           <p className="text-lg font-bold mb-2">Message Sent!</p>
           <p className="text-gray-700 text-base">We'll be in touch shortly.</p>
         </div>

@@ -36,6 +36,10 @@ export default function Contact() {
   
     return (
       <div className="bg-gray-100 text-sm md:text-base">
+      <Head>
+        <title>Contact | Crypto-Gen</title>
+        <link rel="icon" href="/logo.png" />
+      </Head>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col gap-4 pb-8 text-sm md:text-base">

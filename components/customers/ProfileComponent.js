@@ -44,7 +44,7 @@ const ProfileComponent = ({user}) => {
 
               <div className="p-6 md:mt-8">
                 <div className="uppercase tracking-wide md:text-2xl font-semibold">
-                  Peter Okorafor
+                  {user.firstName} {user.lastName}
                 </div>
 
                 <div className="flex justify-between items-center border-b-[0.5px] border-slate-500">
@@ -61,12 +61,14 @@ const ProfileComponent = ({user}) => {
                 <div className="flex gap-4 items-start pt-4">
                   <p className="text-sm md:text-sm lg:text-base font-semibold tracking-wide">INTERESTS:</p>
                   <div className="flex gap-4 items-start">
+                      { user.crypto.map((data) =>(
                         <small
+                          key={data}
                           className="text-xs md:text-base flex items-center justify-center rounded-md py-1 px-2 bg-slate-300"
                         >
-                          Food
+                          {data}
                         </small>
-                        {}
+                      ))}
                   </div>
                 </div>
 

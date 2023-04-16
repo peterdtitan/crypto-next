@@ -40,7 +40,7 @@ function OtherInfo({ formData, setFormData, setSelectedCrypto }) {
                     setFormData({ ...formData, currentPlan: event.target.value });
                   }}
                 >
-                  <option value="Standard">Standard ($500-$1,999)</option>
+                  <option value="Standard">Standard ($100-$1,999)</option>
                   <option value="Premium">Premium ($2,000-$4,999)</option>
                   <option value="Gold">Gold ($5,000-$9999)</option>
                   <option value="Diamond">Diamond ($10,000-$49,999)</option>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head';
 import Link from 'next/link'
 import Layout from '../components/ui/Layout'
 
@@ -6,7 +7,7 @@ const offers = [
   {
     name: 'Standard',
     description: '** All benefits of this plan are stipulated in the contract on start/approval of investment plan and as such, can be viewd at any time on the contract page.',
-    price: '$500-$1,999',
+    price: '$100-$1,999',
     features: ['Access to dashboard and monitoring earnings', 
     '24/7 email support', 'Basic ROI as stipulated on contract', 
     'Withdrawal minimum of $1,000', 'Withdrawal max of $1,000 monthly'],
@@ -82,6 +83,10 @@ const Card = ({offer}) => {
 export default function Offers() {
   return (
     <div className='flex flex-col items-center gap-4 justify-center w-full h-full pt-10 pb-20 bg-slate-50 font-montserrat'>
+    <Head>
+      <title>Offers | Crypto-Gen</title>
+      <link rel="icon" href="/logo.png" />
+    </Head>
       <h1 className="text-2xl md:text-4xl">View our offers...</h1>
       <p className="font-montserrat text-xs md:text-base w-[80%] md:w-[70%text-xl md:]">
       With a very highly competitive market in the crypto industry, we offer the best possible options for investing and actualizing your returns
