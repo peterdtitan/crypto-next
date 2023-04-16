@@ -62,13 +62,12 @@ const Login = ({ session }) => {
         ...payload,
         redirect: false,
       });
-      console.log(result);
       if (!result.error) {
         const session = await getSession()
         console.log(session)
+        router.push(`/${session.user.role}`);
       } else {
         alert("Couldn't log you in. Check details and try again!");
-        console.log(result.error);
       }
     }
   };

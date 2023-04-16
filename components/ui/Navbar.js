@@ -121,14 +121,22 @@ export default function Nav(){
           <Dropdown.Item key="profile" withDivider>
             <Link href={`/${session.user.role}`}>Profile</Link>
           </Dropdown.Item>
-          <Dropdown.Item key="orders" withDivider>
-            Earnings
-          </Dropdown.Item>
-          <Dropdown.Item key="wishlist">Withdrawals</Dropdown.Item>
-          <Dropdown.Item key="tracking">Plans & Upgrade</Dropdown.Item>
-          <Dropdown.Item key="help_and_feedback" withDivider>
-            Help & Feedback
-          </Dropdown.Item>
+          {session.user.role === 'customer' ? <>
+            <Dropdown.Item key="orders" withDivider>
+              <Link href={`/${session.user.role}/earnings`}>Earnings</Link>
+            </Dropdown.Item>
+            <Dropdown.Item key="wishlist">
+              <Link href={`/${session.user.role}/withdrawals`}>Withdrawals</Link>
+            </Dropdown.Item>
+            <Dropdown.Item key="tracking">
+              <Link href={`/${session.user.role}/plans`}>Plans and Upgrade</Link>
+            </Dropdown.Item>
+            <Dropdown.Item key="help_and_feedback" withDivider>
+              <Link href='/contact'>Help & Feedback</Link>
+            </Dropdown.Item>
+          </> : 
+          null
+          }
           <Dropdown.Item key="logout" withDivider color="#fffffff">
             <button className="bg-red-600 text-white w-full rounded-md p-2" onClick={()=>signOut()}>Log Out</button>
           </Dropdown.Item>
