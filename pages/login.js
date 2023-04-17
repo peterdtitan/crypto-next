@@ -151,7 +151,7 @@ export async function getServerSideProps() {
     return {
       redirect: {
         destination: `/${session.user.role}`,
-        permanent: true,
+        permanent: false,
       },
     };
   }
