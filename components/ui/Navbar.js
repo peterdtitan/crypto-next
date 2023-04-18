@@ -120,16 +120,16 @@ export default function Nav(){
           <Dropdown.Item key="profile" withDivider>
             <Link href={`/${session.user.role}`}>Profile</Link>
           </Dropdown.Item>
-            <Dropdown.Item key="orders">
+            <Dropdown.Item key="invest">
               <Link href={`/${session.user.role}/invest`}>Invest Now</Link>
             </Dropdown.Item>
-            <Dropdown.Item key="orders" withDivider>
+            <Dropdown.Item key="earnings" withDivider>
               <Link href={`/${session.user.role}/earnings`}>Earnings</Link>
             </Dropdown.Item>
-            <Dropdown.Item key="wishlist">
+            <Dropdown.Item key="withdrawal">
               <Link href={`/${session.user.role}/withdrawals`}>Withdrawals</Link>
             </Dropdown.Item>
-            <Dropdown.Item key="tracking">
+            <Dropdown.Item key="plans">
               <Link href={`/${session.user.role}/plans`}>Plans and Upgrade</Link>
             </Dropdown.Item>
             <Dropdown.Item key="help_and_feedback" withDivider>

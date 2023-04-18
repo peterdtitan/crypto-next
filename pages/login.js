@@ -109,8 +109,8 @@ const Login = ({ session }) => {
             <form onSubmit={loginHandler} className="flex flex-col w-[80%] md:w-[60%] gap-4">
               <Input
                 clearable
-                label="Name"
-                placeholder="Enter your name"
+                label="Email"
+                placeholder="Enter your email"
                 onChange={(e)=>{setEmail(e.target.value)}}
               />
 
@@ -118,7 +118,7 @@ const Login = ({ session }) => {
                 clearable
                 color="black"
                 initialValue=""
-                helperText="For first login, use password specified in email."
+                helperText="To reset password open a contact ticket."
                 type="password"
                 label="Password"
                 placeholder="Enter your password"
