@@ -103,7 +103,7 @@ export default function Invest() {
                     >
                       <option value="BTC">Bitcoin (BTC)</option>
                       <option value="ETH">Ethereum (ETH)</option>
-                      <option value="USDT">Tether (USDT) (Not available)</option>
+                      <option value="USDT">Tether (USDT)</option>
                       <option value="BNB" disabled>Binance Coin (Not available)</option>
                       <option value="USDC" disabled>US Dollar Coin (Not available)</option>
                       <option value="XRP" disabled>XRP (Not available)</option>
