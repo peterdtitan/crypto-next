@@ -3,15 +3,31 @@ import Head from 'next/head';
 import { getSession } from 'next-auth/react';
 import Layout from '../../components/ui/Layout';
 import InvestModal from '../../components/InvestModal';
+import SuccessModal from '../../components/SuccessModal';
+import { useRouter } from "next/router";
+
 export default function Invest() {
+  const router = useRouter();
   const [bitcoinAmount, setBitcoinAmount] = useState(0);
   const [investmentOption, setInvestmentOption] = useState('monthly');
   const [investmentCurrency, setInvestmentCurrency] = useState('BTC');
+
+
+
+  const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   const [showModal, setShowModal] = useState(false);
 
   function handleCloseModal() {
     setShowModal(false);
+  }
+
+  async function handleConfirm() {
+    setSuccess(true);
+    await new Promise(resolve => setTimeout(resolve, 8000));
+    setSuccess(false);
+    router.push('/customer/earnings');
   }
 
   const handleBitcoinAmountChange = (event) => {
@@ -29,11 +45,19 @@ export default function Invest() {
   const handleInvestmentSubmit = (event) => {
     event.preventDefault();
     // Handle investment submission here
-    setShowModal(true);
+    if(bitcoinAmount != 0){
+      setShowModal(true);
+    } else {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+    }
+    
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12 overflow-hidden">
       <Head>
         <title>Invest in Bitcoin | My Investment Platform</title>
         <link rel="icon" href="/logo.png" />
@@ -79,7 +103,7 @@ export default function Invest() {
                     >
                       <option value="BTC">Bitcoin (BTC)</option>
                       <option value="ETH">Ethereum (ETH)</option>
-                      <option value="USDT" disabled>Tether (USDT) (Not available)</option>
+                      <option value="USDT">Tether (USDT) (Not available)</option>
                       <option value="BNB" disabled>Binance Coin (Not available)</option>
                       <option value="USDC" disabled>US Dollar Coin (Not available)</option>
                       <option value="XRP" disabled>XRP (Not available)</option>
@@ -97,6 +121,12 @@ export default function Invest() {
                     className="w-full px-4 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
                   />
                 </div>
+                <div className='flex items-center justify-center'>
+                {error ? (
+                  <p className='p-2 bg-red-200 text-red-800 font-bold rounded-md text-xs md:text-sm text-center w-[70%] italic'> Please enter an amount greater than 0!</p>
+                  )
+                : null}
+                </div>
                 <div className="pt-4 flex items-center space-x-4">
                   <button
                     onClick={handleInvestmentSubmit}
@@ -107,7 +137,8 @@ export default function Invest() {
                 </div>
               </div>
             </div>
-            <InvestModal isOpen={showModal} onClose={handleCloseModal} />
+            <InvestModal isOpen={showModal} onClose={handleCloseModal} curr={investmentCurrency} setSuccess={handleConfirm}/>
+            <SuccessModal isOpen={success} onClose={handleCloseModal}/>
           </div>
         </div>
       </div>
