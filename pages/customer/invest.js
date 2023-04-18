@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { getSession } from 'next-auth/react';
 import Layout from '../../components/ui/Layout';
-
+import InvestModal from '../../components/InvestModal';
 export default function Invest() {
   const [bitcoinAmount, setBitcoinAmount] = useState(0);
   const [investmentOption, setInvestmentOption] = useState('monthly');
   const [investmentCurrency, setInvestmentCurrency] = useState('BTC');
+
+  const [showModal, setShowModal] = useState(false);
+
+  function handleCloseModal() {
+    setShowModal(false);
+  }
 
   const handleBitcoinAmountChange = (event) => {
     setBitcoinAmount(event.target.value);
@@ -23,6 +29,7 @@ export default function Invest() {
   const handleInvestmentSubmit = (event) => {
     event.preventDefault();
     // Handle investment submission here
+    setShowModal(true);
   };
 
   return (
@@ -100,6 +107,7 @@ export default function Invest() {
                 </div>
               </div>
             </div>
+            <InvestModal isOpen={showModal} onClose={handleCloseModal} />
           </div>
         </div>
       </div>
