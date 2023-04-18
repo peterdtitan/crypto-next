@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import Layout from '../../components/ui/Layout'
 import { getSession } from 'next-auth/react';
 import Head from 'next/head';
+import Link from 'next/link'
 import Image from 'next/image';
 import { Disclosure } from '@headlessui/react';
 import { BsChevronUp } from 'react-icons/bs'
@@ -137,17 +138,32 @@ export default function Plans({currentPlan}) {
                     <p className="text-xs mt-2 italic">
                       {plan.description}
                     </p>
-                    <button
+                    {plan.name === currentPlan.name ? (
+                      <button
                       className={classNames(
                         'mt-6 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-black hover:text-primaryYellow bg-primaryYellow hover:bg-lightBlack focus:outline-none',
                         plan.name === currentPlan.name
                           ? 'bg-gray-300 cursor-default hover:bg-gray-300 focus:bg-gray-300'
                           : ''
                       )}
-                      disabled={plan.name === currentPlan.name}
                     >
-                      {plan.name === currentPlan.name ? 'Current Plan' : 'Upgrade'}
+                      Current Plan
                     </button>
+                    ): (
+                      <Link href="/customer/invest">
+                      <button
+                        className={classNames(
+                          'mt-6 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-black hover:text-primaryYellow bg-primaryYellow hover:bg-lightBlack focus:outline-none',
+                          plan.name === currentPlan.name
+                            ? 'bg-gray-300 cursor-default hover:bg-gray-300 focus:bg-gray-300'
+                            : ''
+                        )}
+                      >
+                        Upgrade
+                      </button>
+                    </Link>
+                    )}
+
                   </div>
                   <Disclosure>
                     {({ open }) => (
