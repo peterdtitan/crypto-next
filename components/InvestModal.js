@@ -60,7 +60,7 @@ export default function InvestModal({ isOpen, onClose, curr, setSuccess }) {
     >
       <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
       <div className="bg-white rounded-lg shadow-xl transform transition-all mx-auto">
-        <div className="px-4 py-4 h-[650px] md:h-[700px] w-[350px] md:w-[700px] flex flex-col items-center gap-4">
+        <div className="px-4 py-4 h-[670px] md:h-[700px] w-[350px] md:w-[700px] flex flex-col items-center gap-4">
             <p className="text-lg font-bold mb-2">Ticket Opened!</p>
           {selectedCurrency && (
             <div className="flex flex-col items-center bg-black">
@@ -79,7 +79,7 @@ export default function InvestModal({ isOpen, onClose, curr, setSuccess }) {
                 className={copy ? 'bg-green-500 text-green-900 p-2 cursor-pointer rounded-md md:w-[60%]': 'bg-primaryYellow md:w-[60%] rounded-md cursor-pointer p-2 text-black hover:bg-lightBlack hover:text-primaryYellow'}>
                 {copy ? 'Copied!': 'Copy Wallet Address'}
             </button>
-            <p className='text-black text-md text-center'>You are investing in <span className='text-primaryYellow font-semibold'>{selectedCurrency.name}</span></p>
+            <p className='text-black text-sm md:text-md text-center'>Send matching amount in <span className='text-primaryYellow font-semibold'>{selectedCurrency.name}</span> to the above wallet.</p>
             <p className='text-black text-sm italic'>
               <sup>**</sup>Please note that only deposits made in the 
               <span className='text-red-700 font-bold'> {selectedCurrency.name} wallet </span> 
@@ -93,7 +93,7 @@ export default function InvestModal({ isOpen, onClose, curr, setSuccess }) {
                     setShowModal(false)
                     onClose()
                 }}
-            className="bg-primaryYellow p-2 rounded-md text-sm md:text-md md:w-80">Confirm</button>
+            className="bg-primaryYellow p-2 rounded-md text-sm md:text-md md:w-80">Confirm Sent</button>
             <button onClick={()=>{
                 setShowModal(false)
                 onClose()
