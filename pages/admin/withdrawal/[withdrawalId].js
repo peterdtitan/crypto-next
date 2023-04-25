@@ -1,21 +1,41 @@
 import React, { useState } from 'react'
 import Layout from '../../../components/ui/Layout';
+import { db } from "../../../firebase.config";
+import { collection, addDoc, setDoc, doc } from 'firebase/firestore';
 import { useSession, getSession } from 'next-auth/react';
 
-export default function WithdrawalId({ withdrawal }) {
-  const [newWithdrawal, setNewWithdrawal] = useState({ amount: '', description: '', date: '' })
+export default function WithdrawalId({ withdrawal, user }) {
+  const [newWithdrawal, setNewWithdrawal] = useState({ amount: '', description: '', date: ''})
   const [withdrawals, setWithdrawals] = useState(withdrawal)
 
   const handleChange = (event) => {
     setNewWithdrawal({ ...newWithdrawal, [event.target.name]: event.target.value })
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const updatedWithdrawals = [...withdrawal, newWithdrawal]
-    setWithdrawals(updatedWithdrawals)
-    setNewWithdrawal({ amount: '', description: '', date: '' })
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      !newWithdrawal.amount ||
+      !newWithdrawal.description ||
+      !newWithdrawal.date
+    )
+    {
+      alert('Fill in all fields!')
+    } else {
+      try{
+        setUploading(true)
+        const docRef = await setDoc(doc(db, "products", user.id), {
+          ...newWithdrawal, status: 'Pending'
+      }).then(async () => {
+        alert('Added withdrawal')
+        setNewWithdrawal({ amount: '', description: '', date: ''})
+        // router.push("/designer/products")
+        });
+      } catch(error) {
+        console.log(error)
+      };
+
+  }}
 
   return (
     <div className="flex flex-col items-center justify-center gap-8 p-20">
@@ -72,7 +92,8 @@ export async function getServerSideProps(context) {
   return {
     props: {
       session,
-      withdrawal
+      withdrawal,
+      user
     },
   };
 }
