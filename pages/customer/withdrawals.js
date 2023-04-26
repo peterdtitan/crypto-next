@@ -80,7 +80,7 @@ export default function Withdrawals(withdrawals) {
               : 
               <div className=" h-[300px] flex items-center justify-center gap-6 flex-col w-full">
                 <BiError className="text-6xl text-red-700" />
-                <p className="text-black text-lg italic">No earnings to display!</p>
+                <p className="text-black text-lg italic">No withdrawals to display!</p>
               </div> 
             }
             </div>
@@ -90,7 +90,7 @@ export default function Withdrawals(withdrawals) {
     </div>
   )
   }
-                      }
+}
          
 
 

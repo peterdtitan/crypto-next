@@ -144,7 +144,9 @@ const ProfileComponent = ({user}) => {
               </div>
               <div className="flex justify-between p-4 bg-slate-100 rounded-md">
                 <p className="font-semibold">Withdrawal Limit</p>
-                <p className="">${user.withdrawalLimit.amount} <span className="text-white italic bg-red-600 p-1 rounded-md font-bold">{user.withdrawalLimit.time}</span></p>
+                {user.withdrawalLimit ? (
+                  <p className="">${user.withdrawalLimit.amount} <span className="text-white italic bg-red-600 p-1 rounded-md font-bold">{user.withdrawalLimit.time}</span></p>
+                ): <p>N/A</p>}
               </div>
             </div>
           }

@@ -74,7 +74,7 @@ const plans = [
 export default function Plans({currentPlan}) {
   const [initialRenderComplete, setInitialRenderComplete] = React.useState(false);
   const index = plans.findIndex(obj => obj.name === currentPlan);
-  const [plan, setPlan] = React.useState(plans[index]);
+  const [currplan, setPlan] = React.useState(plans[index]);
 
   useEffect(() => {
     setInitialRenderComplete(true);
@@ -106,10 +106,10 @@ export default function Plans({currentPlan}) {
           {/* Current plan */}
           <div className="mt-6">
             <h2 className="text-lg font-medium text-gray-900">
-              Current Plan: {plan.name}
+              Current Plan: {currplan.name}
             </h2>
             <div className="mt-2 text-sm text-gray-500 flex flex-col">
-              {plan.features.map((data) => (
+              {currplan.features.map((data) => (
                 <p>• {data}</p>
               ))}
             </div>
@@ -123,9 +123,9 @@ export default function Plans({currentPlan}) {
                   key={plan.name}
                   className={classNames(
                     'bg-white rounded-lg shadow-md overflow-hidden',
-                    plan.name === currentPlan.name
-                      ? 'border-indigo-500'
-                      : 'border-gray-200'
+                    plan.name === currplan.name
+                      ? 'border-primaryYellow border-[2px]'
+                      : 'border-gray-200 border-[0.5px]'
                   )}
                 >
                   <div className="px-6 py-8">
@@ -138,14 +138,9 @@ export default function Plans({currentPlan}) {
                     <p className="text-xs mt-2 italic">
                       {plan.description}
                     </p>
-                    {plan.name === currentPlan.name ? (
-                      <button
-                      className={classNames(
-                        'mt-6 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-black hover:text-primaryYellow bg-primaryYellow hover:bg-lightBlack focus:outline-none',
-                        plan.name === currentPlan.name
-                          ? 'bg-gray-300 cursor-default hover:bg-gray-300 focus:bg-gray-300'
-                          : ''
-                      )}
+                    {plan.name === currplan.name ? (
+                      <button disabled
+                      className='bg-gray-300 cursor-not-allowed  focus:bg-gray-300 mt-6 px-4 py-2 rounded-md'
                     >
                       Current Plan
                     </button>
@@ -154,7 +149,7 @@ export default function Plans({currentPlan}) {
                       <button
                         className={classNames(
                           'mt-6 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-black hover:text-primaryYellow bg-primaryYellow hover:bg-lightBlack focus:outline-none',
-                          plan.name === currentPlan.name
+                          plan.name === currplan.name
                             ? 'bg-gray-300 cursor-default hover:bg-gray-300 focus:bg-gray-300'
                             : ''
                         )}
