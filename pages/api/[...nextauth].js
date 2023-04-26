@@ -42,7 +42,6 @@ export default NextAuth({
           user.user.profilePhoto = data[0].profilePhoto;
           user.user.firstName = data[0].firstName;
           user.user.lastName = data[0].lastName;
-          user.user.profilePhoto = data[0].profilePhoto;
 
 
           if (user) {
@@ -64,7 +63,7 @@ export default NextAuth({
 
   ],
   callbacks: {
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       session.user.id = token.id;
       session.user.role = token.role;
       session.user.name = token.name;
@@ -74,7 +73,7 @@ export default NextAuth({
       session.user.lastName = token.lastName;
       return session;
     },
-    async jwt({ token, user, account, profile, isNewUser }) {
+    async jwt({ token, user }) {
       if (user && user.user.uid) {
         token.id = user.user.uid;
         token.email = user.user.email;

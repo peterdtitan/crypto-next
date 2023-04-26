@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useSession, getSession } from 'next-auth/react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer  } from 'recharts'
 import { BiError } from 'react-icons/bi'
 import Layout from '../../components/ui/Layout'
 
-export default function Earnings(earnings){
+export default function Earnings({earning}){
+    const [earnings, setEarnings] = useState(earning)
 
     const [initialRenderComplete, setInitialRenderComplete] = React.useState(false);
     const formatYAxis = (value) => `$${value}`;
@@ -29,9 +30,9 @@ export default function Earnings(earnings){
           </p>
         </div>
         <div className="bg-white overflow-hidden shadow rounded-lg p-4 flex items-center justify-center">
-        {!earnings.earnings.length == 0 ?
+        {!earnings.length == 0 ?
             <ResponsiveContainer width="100%" height={400}>
-                <LineChart width={400} height={250} data={earnings.earnings}>
+                <LineChart width={400} height={250} data={earnings}>
                   <Line type="monotone" dataKey="amount" stroke="#4F46E5" />
                   <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                   <XAxis dataKey="date" />
@@ -46,9 +47,9 @@ export default function Earnings(earnings){
         </div> }
         </div>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {!earnings.earnings.length == 0 ? earnings.earnings.map((earning) => (
+          {!earnings.length == 0 ? earnings.map((earning) => (
             <div
-              key={earning.date}
+              key={earning.id}
               className="bg-white text-md overflow-hidden shadow rounded-lg p-4 hover:bg-primaryYellow/80 text-black hover:text-white"
             >
               <div className="flex justify-between items-center">
@@ -85,11 +86,11 @@ export async function getServerSideProps(context) {
     }
     const response = await fetch(`https://us-central1-crypto-gen.cloudfunctions.net/app/api/user/userDetails/${session.user.id}`)
     const user = await response.json()
-    const earnings = user.earnings || []
+    const earning = user.earnings || []
     return {
       props: {
         session,
-        earnings
+        earning
       },
     };
   }

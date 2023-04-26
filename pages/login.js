@@ -10,7 +10,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import logo from "../public/images/logo.png";
 import Layout from '../components/ui/Layout'
 
-const Login = ({ session }) => {
+const Login = ({session}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
@@ -63,8 +63,10 @@ const Login = ({ session }) => {
         ...payload,
         redirect: false,
       });
+      console.log(session)
       if (!result.error) {
         const session = await getSession()
+        console.log(session)
         router.push(`/${session.user.role}`);
       } else {
         alert("Couldn't log you in. Check details and try again!");
